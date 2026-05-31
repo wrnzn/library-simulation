@@ -12,7 +12,7 @@ class LibraryEnvironment:
         self.env = env
         self.pcs = simpy.Resource(env, capacity=4)
         self.desks = simpy.Resource(env, capacity=56)
-        self.tables = simpy.Resource(env, capacity=204) # 34 tables * 6 seats
+        self.tables = simpy.Resource(env, capacity=272) # 34 tables * 8 seats (oversitted)
         self.couches = simpy.Resource(env, capacity=42) # 7 couches * 6 seats (oversitted) # Base 7, but oversitted up to 12 due to squeezing
         self.balks = 0
         self.occupants = []
@@ -241,8 +241,8 @@ html_template = """
       <div><b>Balks:</b> <span id="balkCount" style="color: red; font-weight: bold;">0</span></div>
       <div><b>PCs:</b> <span id="pcCount">0</span>/4</div>
       <div><b>Desks:</b> <span id="deskCount">0</span>/56</div>
-      <div><b>Tables:</b> <span id="tableCount">0</span>/204 (Base)</div>
-      <div><b>Couches:</b> <span id="couchCount">0</span>/42 (Base 28)</div>
+      <div><b>Tables:</b> <span id="tableCount">0</span>/272 (Max 204 Base)</div>
+      <div><b>Couches:</b> <span id="couchCount">0</span>/42 (Max 28 Base)</div>
   </div>
 
   <div style="display: flex; gap: 20px; align-items: stretch; flex-wrap: wrap;">
@@ -516,22 +516,20 @@ html_template = """
                if(counts.pcs < 4) elements.pcs[counts.pcs].classList.add('occupied');
                counts.pcs++;
            } else if(occ.location === 'couches') {
-               let couchIdx = Math.floor(counts.couches / 6);
-               if (couchIdx >= 7) couchIdx = 6;
+               let couchIdx = counts.couches % 7; // Distribute evenly across 7 couches
                elements.couches[couchIdx].classList.add('occupied');
-               
-               // Oversitting effect (turn orange when squeezed > 4 per couch)
-               if(counts.couches >= 28) {
+               let peopleAtThisCouch = Math.floor(counts.couches / 7) + 1;
+               if(peopleAtThisCouch > 4) { // Oversitting (5 or 6)
                    elements.couches[couchIdx].style.boxShadow = '0 0 10px rgba(255,165,0,0.9)';
                    elements.couches[couchIdx].style.backgroundColor = '#ff8c00'; // Orange
                }
                counts.couches++;
            } else if(occ.location === 'tables') {
-               let tableIdx = Math.floor(counts.tables / 6);
-               if(tableIdx < 34) elements.tables[tableIdx].classList.add('occupied');
-               if(counts.tables > 204) {
-                   // Oversitting logic: turn some tables orange if > 204 (up to 272)
-                   if(tableIdx < 34) elements.tables[tableIdx].style.backgroundColor = '#ffa500';
+               let tableIdx = counts.tables % 34; // Distribute evenly across 34 tables
+               elements.tables[tableIdx].classList.add('occupied');
+               let peopleAtThisTable = Math.floor(counts.tables / 34) + 1;
+               if(peopleAtThisTable > 6) { // Oversitting (7 or 8)
+                   elements.tables[tableIdx].style.backgroundColor = '#ffa500'; // Orange
                }
                counts.tables++;
            } else if(occ.location === 'desks') {
