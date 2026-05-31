@@ -435,7 +435,7 @@ html_template = """
               responsive: true, maintainAspectRatio: false,
               animation: false,
               plugins: { legend: { display: false }, title: { display: true, text: 'Total Students inside Library' } },
-              scales: { x: { ticks: { maxTicksLimit: 12 } }, y: { beginAtZero: true } },
+              scales: { x: { ticks: { maxTicksLimit: 13 } }, y: { beginAtZero: true } },
               cursorIndex: 0
           }
       });
@@ -456,7 +456,7 @@ html_template = """
               responsive: true, maintainAspectRatio: false,
               animation: false,
               plugins: { legend: { display: true }, title: { display: true, text: 'Capacity Utilization' } },
-              scales: { x: { ticks: { maxTicksLimit: 12 } }, y: { beginAtZero: true, max: 210 } },
+              scales: { x: { ticks: { maxTicksLimit: 13 } }, y: { beginAtZero: true } },
               cursorIndex: 0
           }
       });
@@ -472,7 +472,7 @@ html_template = """
               responsive: true, maintainAspectRatio: false,
               animation: false,
               plugins: { legend: { display: false }, title: { display: true, text: 'Queue Drops (Balks)' } },
-              scales: { x: { ticks: { maxTicksLimit: 12 } }, y: { beginAtZero: true } },
+              scales: { x: { ticks: { maxTicksLimit: 13 } }, y: { beginAtZero: true } },
               cursorIndex: 0
           }
       });
