@@ -2,15 +2,15 @@
   "content": [
     {
       "content": null,
-      "created": "2026-05-31T08:29:55.083376Z",
+      "created": "2026-05-31T08:37:54.700782Z",
       "format": null,
       "hash": null,
       "hash_algorithm": null,
-      "last_modified": "2026-05-31T08:26:43.194735Z",
+      "last_modified": "2026-05-31T08:37:51.741221Z",
       "mimetype": null,
       "name": "Library_Simulation.ipynb",
       "path": "Library_Simulation.ipynb",
-      "size": 26024,
+      "size": 26312,
       "type": "notebook",
       "writable": true
     }
@@ -19,7 +19,7 @@
   "format": "json",
   "hash": null,
   "hash_algorithm": null,
-  "last_modified": "2026-05-31T08:29:55.083376Z",
+  "last_modified": "2026-05-31T08:37:54.700782Z",
   "mimetype": null,
   "name": "",
   "path": "",
