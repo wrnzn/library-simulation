@@ -223,7 +223,7 @@ html_template = """
   
 </style>
 
-<div style="font-family: sans-serif; max-width: 1200px; padding: 20px; background: #fff; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); margin: 0 auto;">
+<div style="font-family: sans-serif; width: 100%; max-width: 1400px; box-sizing: border-box; padding: 20px; background: #fff; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); margin: 0 auto; overflow-x: hidden;">
   <h2>SimPy Real-Time Operations Dashboard</h2>
   <div style="display: flex; gap: 20px; margin-bottom: 15px; font-size: 1rem; flex-wrap: wrap; background: #e0f2fe; padding: 10px; border-radius: 8px; border: 1px solid #bae6fd; justify-content: space-between;">
       <div>⏱️ <b>Avg Wait Time:</b> <span style="color:#0369a1;">__AVG_WAIT__ mins</span></div>
@@ -257,7 +257,7 @@ html_template = """
         <div class="exit">Exit</div>
       </div>
       
-      <div style="flex: 1; display: flex; flex-direction: column; justify-content: space-between; min-width: 400px; gap: 10px;">
+      <div style="flex: 1; display: flex; flex-direction: column; justify-content: space-between; min-width: 0; gap: 10px;">
           <div style="flex: 1; min-height: 140px; position: relative;"><canvas id="totalChart"></canvas></div>
           <div style="flex: 1; min-height: 140px; position: relative;"><canvas id="utilChart"></canvas></div>
           <div style="flex: 1; min-height: 140px; position: relative;"><canvas id="balkChart"></canvas></div>
@@ -594,7 +594,7 @@ def generate_dashboard(arrival_multiplier, loiter_ratio, seed=42):
     
     import html
     safe_html = html.escape(raw_html)
-    return f'<iframe srcdoc="{safe_html}" width="100%" height="850px" style="border:none; border-radius: 8px; background:white;"></iframe>'
+    return f'<iframe srcdoc="{safe_html}" width="100%" height="850px" style="border:none; overflow:hidden; border-radius: 8px; background:white;"></iframe>'
 
 css = """
 body, .gradio-container {
