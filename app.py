@@ -13,7 +13,7 @@ class LibraryEnvironment:
         self.pcs = simpy.Resource(env, capacity=4)
         self.desks = simpy.Resource(env, capacity=56)
         self.tables = simpy.Resource(env, capacity=204) # 34 tables * 6 seats
-        self.couches = simpy.Resource(env, capacity=12) # Base 7, but oversitted up to 12 due to squeezing
+        self.couches = simpy.Resource(env, capacity=42) # 7 couches * 6 seats (oversitted) # Base 7, but oversitted up to 12 due to squeezing
         self.balks = 0
         self.occupants = []
         self.waiting_times = []
@@ -242,7 +242,7 @@ html_template = """
       <div><b>PCs:</b> <span id="pcCount">0</span>/4</div>
       <div><b>Desks:</b> <span id="deskCount">0</span>/56</div>
       <div><b>Tables:</b> <span id="tableCount">0</span>/204 (Base)</div>
-      <div><b>Couches:</b> <span id="couchCount">0</span>/12</div>
+      <div><b>Couches:</b> <span id="couchCount">0</span>/42 (Base 28)</div>
   </div>
 
   <div style="display: flex; gap: 20px; align-items: stretch; flex-wrap: wrap;">
@@ -516,12 +516,12 @@ html_template = """
                if(counts.pcs < 4) elements.pcs[counts.pcs].classList.add('occupied');
                counts.pcs++;
            } else if(occ.location === 'couches') {
-               let couchIdx = Math.floor((counts.couches / 12) * 7);
+               let couchIdx = Math.floor(counts.couches / 6);
                if (couchIdx >= 7) couchIdx = 6;
                elements.couches[couchIdx].classList.add('occupied');
                
-               // Oversitting effect (turn orange/red when squeezed)
-               if(counts.couches >= 7) {
+               // Oversitting effect (turn orange when squeezed > 4 per couch)
+               if(counts.couches >= 28) {
                    elements.couches[couchIdx].style.boxShadow = '0 0 10px rgba(255,165,0,0.9)';
                    elements.couches[couchIdx].style.backgroundColor = '#ff8c00'; // Orange
                }
