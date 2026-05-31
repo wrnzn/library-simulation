@@ -1,7 +1,6 @@
-simpy
 gradio
-pandas
 numpy
-plotly
+pandas
 scipy
+simpy
 matplotlib
