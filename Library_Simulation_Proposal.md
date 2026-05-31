@@ -79,6 +79,17 @@ Three distinctive scenarios were evaluated using the simulation framework to ide
 * **Total Balks (Queue Drops):** 4,554 students
 * **Analysis:** A surprising and counter-intuitive finding emerges when evaluating a strict "No Loitering" policy. If staff heavily enforce studying (dropping loiterers to 10%), the average cycle time nearly doubles to 90.25 minutes. Because every occupant is now staying for long-duration study sessions, table turnover grinds to a halt. As a result, the balk rate *increases* to 4,554 (up from 2,624 in the baseline). This Operations Research insight proves that simply eliminating loiterers without physically expanding the library space actively worsens queue drops because studying is an intensive, long-duration activity.
 
+
+### Spatial Simulation Dashboard & Visual Analysis
+![SimPy Dashboard showing Peak Capacity and Resource Bottlenecks](assets/dashboard_baseline.png)
+*Figure 1: The Real-Time Operations Dashboard capturing the peak queue drop (balk) thresholds and spatial layout utilization.*
+
+**Dashboard Explanation:**
+As illustrated in Figure 1, the simulation maps the physical library space (left) and synchronizes it with real-time capacity charts (right). 
+1. **Oversitting Visualization:** The tables and couches are highlighted with a glowing orange halo when they exceed their base capacity (oversitting/overfitting). For example, a single white table is mathematically configured to accommodate 6 students before being marked as fully occupied.
+2. **Capacity Utilization:** The middle line graph visually tracks resource exhaustion. The green line (Tables) reaches its absolute physical limit during mid-day, demonstrating exactly when the physical library layout becomes a bottleneck.
+3. **Queue Drops (Balks):** The bottom red chart tracks "balks" (students abandoning the queue due to lack of space). The chart clearly shows steep climbs during peak arrival periods, correlating directly with the moments the table capacity maxes out.
+
 ## FINAL SYSTEM OUTPUTS
 1. A fully functional Discrete-Event Simulation engine written in Python (SimPy).
 2. A reproducible interactive Jupyter Notebook (`Library_Simulation_v2.ipynb`) combining backend logic and dynamic visualization.
