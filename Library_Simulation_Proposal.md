@@ -49,6 +49,33 @@ This section presents the methods employed in conducting the study. It covers th
   4. **Data Aggregation:** Collect frame-by-frame state data into a JSON log structure.
   5. **Dashboard Integration:** Inject the simulation engine into a web application with real-time Chart.js synchronization for interactive EDA.
 
+## SIMPY ARCHITECTURE AND STATISTICAL MODELING
+
+### Identified Entities, Events, and Resources (SimPy Architecture)
+
+**Entities (SimPy Processes):**
+*   **Students:** Active processes with stochastic attributes: `Intended_Stay_Time`, `Patience_Level` (timeout threshold), and `Intent` (Study vs. Leisure).
+
+**Resources (SimPy Resource / FilterStore Objects):**
+*   **Total Navigable Space:** 2,376 tiles (approx. 37cm or 0.14m² each, based on a 66x36 coordinate grid).
+*   **Orange Desks:** Capacity = 56 dedicated study seats.
+*   **White Tables:** Capacity = 34 multi-student shared units.
+*   **PC Workstations:** Capacity = 4 units.
+*   **Lounge Seating:** Capacity = 4 rectangular couches and 3 circle bed couches.
+
+**Events (Discrete State Changes):**
+*   **Arrival (`env.timeout`):** Process generator creates new student.
+*   **Space_Acquisition (`resource.request`):** Student requests specific seating type based on routing logic.
+*   **Departure (`resource.release`):** Student yields resource after dwell time expires.
+*   **Balking/Reneging:** Student leaves (drops from queue) if `resource.request` timeout exceeds `Patience_Level` or preferred seat capacity is completely zero.
+
+### Initial Assumptions & Statistical Modeling
+
+*   **Arrival Pattern:** Modeled as a Non-Homogeneous Poisson Process (NHPP) to account for time-varying arrival rates, spiking during simulated "class dismissal" intervals.
+*   **Service Time (Dwell Time):** Modeled using a statistical mixture model utilizing Log-Normal distributions. A shorter-duration distribution models "loitering" (leisure), while a long-tail distribution models "deep study".
+*   **Queue Discipline & Routing:** No formal FIFO queue. Students utilize conditional logic to route to their preferred SimPy resource (e.g., loiterers request couches first; if full, fallback to white tables; if full, balk).
+*   **Intent Proxy:** Since true intent is latent, baseline ratios for Study vs. Leisure will be approximated via visual proxies (e.g., laptop/book usage) during site observation.
+
 ## ETHICAL, LEGAL, AND DATA PRIVACY CONSIDERATIONS
 As this study involves simulating student behavior and facility utilization, no Personally Identifiable Information (PII) is collected, stored, or processed. The system relies entirely on synthetic stochastic generation driven by mathematical distributions rather than empirical tracking of real individuals. Therefore, it remains fully compliant with the Philippine Data Privacy Act of 2012 (Republic Act No. 10173).
 
@@ -97,7 +124,12 @@ As illustrated in Figure 1, the simulation maps the physical library space (left
 4. A spatial 2D map dynamically rendering occupied vs. unoccupied seats (highlighting oversitting thresholds in orange) in real-time.
 
 ## SCOPE AND LIMITATIONS
-This study focuses strictly on the mathematical simulation of spatial capacity and queueing logic within the UM Tagum Mabini Library. It does not utilize real-time CCTV computer vision or IoT sensors to count actual students; all data is synthetically generated via stochastic models. The accuracy of the simulation is highly dependent on the initial parameters (Arrival Multiplier and Loitering Ratio) set by the user. Complex human behaviors, such as groups moving chairs between tables or students leaving bags to reserve seats, are excluded from the current routing logic to maintain computational efficiency.
+
+*   **Validation Constraints:** Due to a lack of continuous logging, exact peak hours are hypothetically generated using our Arrival Multiplier. The SimPy model will be validated by comparing simulation output against manual periodic snapshot headcounts taken during sample days.
+*   **Behavioral Ambiguity:** The intent ratio relies on observational proxy data (visual cues) rather than explicit logging, leaving room for marginal variance.
+*   **Restricted Zones:** Spatial calculations exclude a 2x22 tile area designated for staff (Library desk).
+*   **Measurement Approximation:** Dimensions were captured using AR measuring tools. Minor dimensional inaccuracies exist but do not structurally alter the discrete-event logic.
+*   **Chair Abundance:** The simulation abstracts "chairs" as an infinite resource, treating "table surface area" and "lounge capacity" as the strict quantitative bottlenecks.
 
 ## REFERENCES
 *(Note: These references have been strictly verified for integrity via the OpenAlex academic database and represent actual recent publications on Discrete Event Simulation, Capacity Planning, and SimPy (2020-2024).)*
