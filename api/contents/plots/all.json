@@ -1,0 +1,43 @@
+{
+  "content": [
+    {
+      "content": null,
+      "created": "2026-05-31T08:41:37.970182Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2026-05-29T09:45:04.615603Z",
+      "mimetype": "image/png",
+      "name": "arrival_rate.png",
+      "path": "plots/arrival_rate.png",
+      "size": 76819,
+      "type": "file",
+      "writable": true
+    },
+    {
+      "content": null,
+      "created": "2026-05-31T08:41:37.979122Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2026-05-29T09:45:06.400831Z",
+      "mimetype": "image/png",
+      "name": "dwell_times.png",
+      "path": "plots/dwell_times.png",
+      "size": 49331,
+      "type": "file",
+      "writable": true
+    }
+  ],
+  "created": "2026-05-31T08:41:37.970182Z",
+  "format": "json",
+  "hash": null,
+  "hash_algorithm": null,
+  "last_modified": "2026-05-31T08:41:37.979122Z",
+  "mimetype": null,
+  "name": "plots",
+  "path": "plots",
+  "size": null,
+  "type": "directory",
+  "writable": true
+}

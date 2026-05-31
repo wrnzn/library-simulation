@@ -1,0 +1,57 @@
+{
+  "content": [
+    {
+      "content": null,
+      "created": "2026-05-31T08:41:37.909094Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2026-05-29T09:45:03.187890Z",
+      "mimetype": "application/vnd.ms-excel",
+      "name": "arrivals_data.csv",
+      "path": "data/arrivals_data.csv",
+      "size": 36841,
+      "type": "file",
+      "writable": true
+    },
+    {
+      "content": null,
+      "created": "2026-05-31T08:41:37.923950Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2026-05-29T09:45:05.326501Z",
+      "mimetype": "application/vnd.ms-excel",
+      "name": "dwell_times.csv",
+      "path": "data/dwell_times.csv",
+      "size": 185153,
+      "type": "file",
+      "writable": true
+    },
+    {
+      "content": null,
+      "created": "2026-05-31T08:41:37.933568Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2026-05-29T09:29:35.317122Z",
+      "mimetype": "application/vnd.ms-excel",
+      "name": "simulation_logs.csv",
+      "path": "data/simulation_logs.csv",
+      "size": 19148,
+      "type": "file",
+      "writable": true
+    }
+  ],
+  "created": "2026-05-31T08:41:37.909094Z",
+  "format": "json",
+  "hash": null,
+  "hash_algorithm": null,
+  "last_modified": "2026-05-31T08:41:37.933568Z",
+  "mimetype": null,
+  "name": "data",
+  "path": "data",
+  "size": null,
+  "type": "directory",
+  "writable": true
+}

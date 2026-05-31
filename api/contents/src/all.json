@@ -1,0 +1,43 @@
+{
+  "content": [
+    {
+      "content": null,
+      "created": "2026-05-31T08:41:37.990123Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2026-05-29T09:27:51.633137Z",
+      "mimetype": "text/x-python",
+      "name": "data_synthesis.py",
+      "path": "src/data_synthesis.py",
+      "size": 3304,
+      "type": "file",
+      "writable": true
+    },
+    {
+      "content": null,
+      "created": "2026-05-31T08:41:37.991128Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2026-05-29T09:29:25.491610Z",
+      "mimetype": "text/x-python",
+      "name": "simulation.py",
+      "path": "src/simulation.py",
+      "size": 5799,
+      "type": "file",
+      "writable": true
+    }
+  ],
+  "created": "2026-05-31T08:41:37.989453Z",
+  "format": "json",
+  "hash": null,
+  "hash_algorithm": null,
+  "last_modified": "2026-05-31T08:41:37.991128Z",
+  "mimetype": null,
+  "name": "src",
+  "path": "src",
+  "size": null,
+  "type": "directory",
+  "writable": true
+}
