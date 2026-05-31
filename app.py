@@ -2,6 +2,7 @@ import gradio as gr
 import numpy as np
 import scipy.stats as stats
 import simpy
+import random
 import json
 import warnings
 warnings.filterwarnings('ignore')
@@ -74,7 +75,9 @@ def student_process(env, student_id, intent, dwell, lib):
                 return
         lib.balks += 1
 
-def run_simulation_logic(arrival_multiplier, loiter_ratio):
+def run_simulation_logic(arrival_multiplier, loiter_ratio, seed=42):
+    np.random.seed(int(seed))
+    random.seed(int(seed))
     # Base rate
     def arrival_rate(t):
         # Increased mathematically to reflect a real crowded university library (approx 800-1200 daily arrivals)
@@ -581,8 +584,8 @@ html_template = """
 </script>
 """
 
-def generate_dashboard(arrival_multiplier, loiter_ratio):
-    raw_logs, kpis = run_simulation_logic(arrival_multiplier, loiter_ratio)
+def generate_dashboard(arrival_multiplier, loiter_ratio, seed=42):
+    raw_logs, kpis = run_simulation_logic(arrival_multiplier, loiter_ratio, seed)
     json_str = json.dumps(raw_logs)
     raw_html = html_template.replace("__LOG_DATA__", json_str)
     raw_html = raw_html.replace("__AVG_WAIT__", f"{kpis['avg_wait']:.2f}")
@@ -617,13 +620,14 @@ with gr.Blocks(css=css, theme=gr.themes.Base()) as demo:
                 gr.Markdown("### 🎛️ Simulation Parameters")
                 arrival_slider = gr.Slider(0.5, 2.0, value=1.0, step=0.1, label="Arrival Volume (1.0 = Normal Day)")
                 intent_slider = gr.Slider(0.0, 1.0, value=0.65, step=0.05, label="% Students Loitering/Socializing (Not Studying)")
+                seed_slider = gr.Slider(0, 1000, value=42, step=1, label="Random Seed (Reproducibility)")
                 simulate_btn = gr.Button("⚡ Run Simulation & Update Dashboard", variant="primary")
         
     dashboard_html = gr.HTML()
 
     # Initialization and event triggers
-    demo.load(fn=generate_dashboard, inputs=[arrival_slider, intent_slider], outputs=[dashboard_html])
-    simulate_btn.click(fn=generate_dashboard, inputs=[arrival_slider, intent_slider], outputs=[dashboard_html])
+    demo.load(fn=generate_dashboard, inputs=[arrival_slider, intent_slider, seed_slider], outputs=[dashboard_html])
+    simulate_btn.click(fn=generate_dashboard, inputs=[arrival_slider, intent_slider, seed_slider], outputs=[dashboard_html])
 
 if __name__ == "__main__":
     demo.launch(server_port=7860, share=True)
