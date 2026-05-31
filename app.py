@@ -248,8 +248,8 @@ html_template = """
       <div><b>Couches:</b> <span id="couchCount">0</span>/42 (Max 28 Base)</div>
   </div>
 
-  <div style="display: flex; gap: 20px; align-items: stretch; flex-wrap: wrap;">
-      <div class="library-container" id="libContainer">
+  <div style="display: flex; gap: 20px; align-items: flex-start; flex-wrap: wrap;">
+      <div class="library-container" id="libContainer" style="flex: 0 0 600px; margin-top: 0;">
         <!-- Static Zones -->
         <div class="red-zone-left"></div>
         <div class="red-zone-bottom"></div>
@@ -257,10 +257,10 @@ html_template = """
         <div class="exit">Exit</div>
       </div>
       
-      <div style="flex: 1; display: flex; flex-direction: column; justify-content: space-between; min-width: 0; gap: 10px;">
-          <div style="flex: 1; min-height: 140px; position: relative;"><canvas id="totalChart"></canvas></div>
-          <div style="flex: 1; min-height: 140px; position: relative;"><canvas id="utilChart"></canvas></div>
-          <div style="flex: 1; min-height: 140px; position: relative;"><canvas id="balkChart"></canvas></div>
+      <div style="flex: 1 1 450px; display: flex; flex-direction: column; justify-content: flex-start; min-width: 450px; gap: 15px;">
+          <div style="width: 100%; height: 160px; position: relative;"><canvas id="totalChart"></canvas></div>
+          <div style="width: 100%; height: 160px; position: relative;"><canvas id="utilChart"></canvas></div>
+          <div style="width: 100%; height: 160px; position: relative;"><canvas id="balkChart"></canvas></div>
       </div>
   </div>
 </div>
@@ -594,7 +594,7 @@ def generate_dashboard(arrival_multiplier, loiter_ratio, seed=42):
     
     import html
     safe_html = html.escape(raw_html)
-    return f'<iframe srcdoc="{safe_html}" width="100%" height="850px" style="border:none; overflow:hidden; border-radius: 8px; background:white;"></iframe>'
+    return f'<iframe srcdoc="{safe_html}" width="100%" height="1150px" style="border:none; overflow:hidden; border-radius: 8px; background:white;"></iframe>'
 
 css = """
 body, .gradio-container {
