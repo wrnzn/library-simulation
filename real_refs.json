@@ -1,0 +1,72 @@
+[
+  {
+    "title": "Tactical manufacturing capacity planning based on discrete event simulation and throughput accounting: A case study of medium sized production enterprise",
+    "authors": "Magdalena Jurczyk-Bunkowska",
+    "year": 2021,
+    "journal": "Advances in Production Engineering & Management",
+    "doi": "https://doi.org/10.14743/apem2021.3.404"
+  },
+  {
+    "title": "Hospital Capacity Planning Using Discrete Event Simulation Under Special Consideration of the COVID-19 Pandemic",
+    "authors": "Thomas Bartz\u2013Beielstein, Frederik Rehbach, Olaf Mersmann, Eva Bartz",
+    "year": 2020,
+    "journal": "arXiv (Cornell University)",
+    "doi": "https://doi.org/10.48550/arxiv.2012.07188"
+  },
+  {
+    "title": "Resource Scheduling in Edge Computing: A Survey",
+    "authors": "Quyuan Luo, Shihong Hu, Changle Li, Guanghui Li, Weisong Shi",
+    "year": 2021,
+    "journal": "IEEE Communications Surveys & Tutorials",
+    "doi": "https://doi.org/10.1109/comst.2021.3106401"
+  },
+  {
+    "title": "Locally Informed Simulation to Predict Hospital Capacity Needs During the COVID-19 Pandemic",
+    "authors": "Gary E. Weissman, Andrew Crane\u2010Droesch, Corey Chivers, ThaiBinh Luong, Asaf Hanish, Michael Z. Levy, Jason Lubken, Michael Becker, Michael Draugelis, George L. Anesi, Patrick J. Brennan, Jason D. Christie, C. William Hanson, Mark E. Mikkelsen, Scott D. Halpern",
+    "year": 2020,
+    "journal": "Annals of Internal Medicine",
+    "doi": "https://doi.org/10.7326/m20-1260"
+  },
+  {
+    "title": "A review of public transport economics",
+    "authors": "D\u00e1niel H\u00f6rcher, Alejandro Tirachini",
+    "year": 2021,
+    "journal": "Economics of Transportation",
+    "doi": "https://doi.org/10.1016/j.ecotra.2021.100196"
+  },
+  {
+    "title": "Applications of stochastic modeling in air traffic management: Methods, challenges and opportunities for solving air traffic problems under uncertainty",
+    "authors": "Rob Shone, K. D. Glazebrook, Konstantinos G. Zografos",
+    "year": 2020,
+    "journal": "European Journal of Operational Research",
+    "doi": "https://doi.org/10.1016/j.ejor.2020.10.039"
+  },
+  {
+    "title": "Toward Autonomous Multi-UAV Wireless Network: A Survey of Reinforcement Learning-Based Approaches",
+    "authors": "Yu Bai, Huijun Zhao, X. L. Zhang, Zheng Chang, Riku J\u00e4ntti, Kun Yang",
+    "year": 2023,
+    "journal": "IEEE Communications Surveys & Tutorials",
+    "doi": "https://doi.org/10.1109/comst.2023.3323344"
+  },
+  {
+    "title": "Discrete Event Simulation: It's Easy with SimPy!",
+    "authors": "Dmitry Zinoviev",
+    "year": 2024,
+    "journal": "arXiv (Cornell University)",
+    "doi": "https://doi.org/10.48550/arxiv.2405.01562"
+  },
+  {
+    "title": "Simulating the Software Development Lifecycle: The Waterfall Model",
+    "authors": "Antonios Saravanos, Matthew X. Curinga",
+    "year": 2023,
+    "journal": "Applied System Innovation",
+    "doi": "https://doi.org/10.3390/asi6060108"
+  },
+  {
+    "title": "A discrete event simulation procedure for validating programs of requirements: The case of hospital space planning",
+    "authors": "Cemre Cubukcuoglu, Pirouz Nourian, I.S. Sariyildiz, M. Fatih Tasgetiren",
+    "year": 2020,
+    "journal": "SoftwareX",
+    "doi": "https://doi.org/10.1016/j.softx.2020.100539"
+  }
+]
